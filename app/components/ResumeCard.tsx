@@ -10,6 +10,7 @@ const ResumeCard = ({
 }) => {
   const { fs } = usePuterStore();
   const [resumeUrl, setResumeUrl] = useState('');
+
   useEffect(() => {
     const loadResume = async () => {
       const blob = await fs.read(imagePath);
@@ -34,7 +35,7 @@ const ResumeCard = ({
           {jobTitle && (
             <h3 className="text-lg break-words text-gray-500">{jobTitle}</h3>
           )}
-          {!jobTitle && !companyName && (
+          {!companyName && !jobTitle && (
             <h2 className="!text-black font-bold">Resume</h2>
           )}
         </div>
@@ -48,7 +49,7 @@ const ResumeCard = ({
             <img
               src={resumeUrl}
               alt="resume"
-              className="w-full h-[305px] max-sm:h-[200px] object-cover object-top"
+              className="w-full h-[350px] max-sm:h-[200px] object-cover object-top"
             />
           </div>
         </div>
